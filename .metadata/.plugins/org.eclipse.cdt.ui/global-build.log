@@ -1,0 +1,26 @@
+09:54:17 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Fecha.o" "..\\src\\Fecha.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nexo.o" "..\\src\\nexo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Vehiculo.o" "..\\src\\Vehiculo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HojaServicio.o" "..\\src\\HojaServicio.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Tipo.o" "..\\src\\Tipo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\input.o" "..\\src\\input.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\RecuperatorioPrimerParcialLabo.o" "..\\src\\RecuperatorioPrimerParcialLabo.c" 
+gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
+Info: Nothing to build for RecuperatorioPrimerParcialLabo
+09:55:28 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nexo.o" "..\\src\\nexo.c" 
+gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
+Info: Nothing to build for RecuperatorioPrimerParcialLabo
+09:56:46 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nexo.o" "..\\src\\nexo.c" 
+gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
+Info: Nothing to build for RecuperatorioPrimerParcialLabo
+09:58:21 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\RecuperatorioPrimerParcialLabo.o" "..\\src\\RecuperatorioPrimerParcialLabo.c" 
+gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
+Info: Nothing to build for RecuperatorioPrimerParcialLabo

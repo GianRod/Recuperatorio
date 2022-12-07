@@ -1,0 +1,237 @@
+#include "nexo.h"
+
+
+eHojaServicio NEXO_cargarDatosHoja(eVehiculo vehiculo)
+{
+	eHojaServicio auxHoja;
+
+		auxHoja.vehiculoId = vehiculo.idVehiculo;
+		strcpy(auxHoja.descripcion, vehiculo.descripcion);
+		pedirEntero(&auxHoja.precioServicio, "\nIngrese el precio del servicio:");
+		auxHoja.fecha = FECHA_pedirFecha();
+	return auxHoja;
+}
+
+int NEXO_darAltaHojas(eVehiculo listaVehiculos[], eHojaServicio listaHojas[],int tamVehiculos, int tamHojas)
+{
+	eVehiculo auxVehiculo;
+	eHojaServicio auxHojas;
+	int idLibreHoja;
+	int buscarId = 0;
+	int auxIdVehiculo;
+	int retorno = -1;
+
+	if(listaHojas != NULL && listaVehiculos && tamHojas > 0 && tamVehiculos > 0)
+	{
+		idLibreHoja = HOJA_obtenerIndexLibre(listaHojas, tamHojas);
+		if(idLibreHoja != -1)
+		{
+			VEH_mostrarTodos(listaVehiculos, tamVehiculos);
+			pedirEnteroAcotado(&buscarId, "\nIngrese el ID del vehículo a dar de alta en las hojas", 1, tamVehiculos);
+			if((auxIdVehiculo = VEH_buscarPosicionPorID(listaVehiculos, tamVehiculos, buscarId)) != -1)
+			{
+				auxVehiculo = listaVehiculos[auxIdVehiculo];
+				auxHojas = NEXO_cargarDatosHoja(auxVehiculo);
+				auxHojas.idHoja = HOJA_obtenerId();
+				auxHojas.isEmpty = OCUPADO;
+				listaHojas[idLibreHoja] = auxHojas;
+				printf("\nID HOJA = %d", auxHojas.idHoja);
+				printf("\nID VEHICULO = %d", auxHojas.vehiculoId);
+				printf("\nDESCRIPCION = %s", auxHojas.descripcion);
+				printf("\nPRECIO = %d", auxHojas.precioServicio);
+				printf("\nFECHA = %d/%d/%d", auxHojas.fecha.dia, auxHojas.fecha.mes, auxHojas.fecha.anio);
+				retorno = 0;
+			}
+			else
+			{
+				retorno = -2;
+			}
+		}
+	}
+
+	return retorno;
+}
+
+void NEXO_mostrarVehiculosTipo(eVehiculo listaVehiculos[], eTipo listaTipos[],int tamVehiculos, int tamTipos)
+{
+	eVehiculo aux;
+	int idTipo;
+	int contadorTipos;
+
+	TIPO_mostrarTodoTipo(listaTipos, tamTipos);
+	pedirEnteroAcotado(&idTipo, "\nIngrese el ID del tipo a mostrar", 1, tamTipos);
+
+	switch(idTipo)
+	{
+		case 1:
+			idTipo = 1001;
+		break;
+		case 2:
+			idTipo = 1002;
+		break;
+		case 3:
+			idTipo = 1003;
+		break;
+	}
+
+	for(int i = 0; i < tamVehiculos; i++)
+	{
+		if(listaVehiculos[i].isEmpty == OCUPADO)
+		{
+			aux = listaVehiculos[i];
+			if(aux.tipoId == idTipo)
+			{
+				VEH_mostrarUno(aux);
+				contadorTipos++;
+			}
+		}
+	}
+
+	if(contadorTipos == 0)
+	{
+		printf("\nNo hay vehículos de ese tipo");
+	}
+}
+
+void NEXO_mostrarImporteTotalUnVehiculo(eVehiculo listaVehiculos[], eHojaServicio listaHojas[],int tamVehiculos, int tamHojas)
+{
+	eHojaServicio auxHoja;
+	int auxIdVehiculo;
+	int acumuladorImporte = 0;
+
+	VEH_mostrarTodos(listaVehiculos, tamVehiculos);
+	pedirEnteroAcotado(&auxIdVehiculo, "\nIngrese el ID del vehiculo: ", 1, tamVehiculos);
+
+
+	for(int i = 0; i < tamVehiculos; i++)
+	{
+		auxHoja = listaHojas[i];
+		if(auxHoja.isEmpty == OCUPADO)
+		{
+			if(auxHoja.vehiculoId == auxIdVehiculo)
+			{
+				acumuladorImporte+= auxHoja.precioServicio;
+			}
+		}
+	}
+	printf("\nEl importe total es de: $%d", acumuladorImporte);
+}
+
+void NEXO_mostrarImporteTotalFecha(eVehiculo listaVehiculos[], eHojaServicio listaHojas[], eTipo listaTipos[], int tamVehiculos, int tamHojas , int tamTipos)
+{
+	eFecha auxFecha;
+	eHojaServicio auxHoja;
+	eVehiculo auxVehiculo;
+	int auxIdTipo;
+	int auxIdVehiculo;
+	int acumuladorImporte = 0;
+
+	auxFecha = FECHA_pedirFecha();
+
+	TIPO_mostrarTodoTipo(listaTipos, tamTipos);
+	pedirEnteroAcotado(&auxIdTipo, "\nIngrese el ID del tipo: ", 1000, 1000+tamTipos);
+
+	for(int i = 0; i < tamHojas; i++)
+	{
+		auxHoja = listaHojas[i];
+		if(auxHoja.isEmpty == OCUPADO)
+		{
+			if((auxFecha.dia == auxHoja.fecha.dia) && (auxFecha.mes == auxHoja.fecha.mes) && (auxFecha.anio == auxHoja.fecha.anio))
+			{
+				auxIdVehiculo = VEH_buscarPosicionPorID(listaVehiculos, tamVehiculos, auxHoja.vehiculoId);
+				if(auxIdVehiculo != -1)
+				{
+					auxVehiculo = listaVehiculos[auxIdVehiculo];
+					if(auxVehiculo.idVehiculo == auxHoja.vehiculoId)
+					{
+						if(auxVehiculo.tipoId == auxIdTipo)
+						{
+							acumuladorImporte+= auxHoja.precioServicio;
+						}
+					}
+				}
+			}
+		}
+	}
+	printf("\nEl importe total de la fecha y tipo selecionado es de: $%d", acumuladorImporte);
+}
+
+int NEXO_modificarDescripcionVehiculo(eVehiculo listaVehiculos[], eHojaServicio listaHojas[],int tamVehiculos, int tamHojas)
+{
+	eVehiculo auxVehiculo;
+	char nuevaDescripcion[MAX_DESC];
+	int id;
+	int retornoId;
+	int posicion;
+	int retorno = -1;
+
+	if(listaVehiculos != NULL && tamVehiculos > 0)
+	{
+		VEH_mostrarTodos(listaVehiculos, tamVehiculos);
+		retornoId = pedirEnteroAcotado(&id, "Ingrese el ID a modificar: ", 1, tamVehiculos);
+
+		if(retornoId != -1)
+		{
+			posicion = VEH_buscarPosicionPorID(listaVehiculos, tamVehiculos, id);
+
+			if(posicion != -1)
+			{
+				pedirCadena(nuevaDescripcion, "\nIngrese la nueva descripcion: ", tamVehiculos);
+				strcpy(listaVehiculos[posicion].descripcion, nuevaDescripcion);
+				auxVehiculo = listaVehiculos[posicion];
+				VEH_mostrarUno(auxVehiculo);
+				for(int i = 20000; i < tamHojas; i++)
+				{
+					if(listaHojas[i].isEmpty == OCUPADO)
+					{
+						printf("\nENTRA 1");
+						if(listaHojas[i].vehiculoId == auxVehiculo.idVehiculo)
+						{
+							printf("\nENTRA 2");
+							strcpy(listaHojas[i].descripcion, nuevaDescripcion);
+						}
+					}
+				}
+
+				retorno = 0;
+			}
+			else{
+				retorno = -2;
+			}
+		}
+	}
+
+	return retorno;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
