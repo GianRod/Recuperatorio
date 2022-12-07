@@ -180,12 +180,15 @@ int NEXO_modificarDescripcionVehiculo(eVehiculo listaVehiculos[], eHojaServicio 
 				strcpy(listaVehiculos[posicion].descripcion, nuevaDescripcion);
 				auxVehiculo = listaVehiculos[posicion];
 				VEH_mostrarUno(auxVehiculo);
-				for(int i = 0; i < tamHojas; i++)
+				for(int i = 20000; i < tamHojas; i++)
 				{
+					printf("\nENTRA 1");
 					if(listaHojas[i].isEmpty == OCUPADO)
 					{
+						printf("\nENTRA 2");
 						if(listaHojas[i].vehiculoId == auxVehiculo.idVehiculo)
 						{
+							printf("\nENTRA 3");
 							strcpy(listaHojas[i].descripcion, nuevaDescripcion);
 						}
 					}

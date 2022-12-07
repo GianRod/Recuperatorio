@@ -23,6 +23,6 @@ void VEH_mostrarUno(eVehiculo aux);
 void VEH_mostrarTodos(eVehiculo lista[], int tam);
 int VEH_modificarDescripcionVehiculo(eVehiculo lista[], int tam);
 int VEH_darBajaVehiculo(eVehiculo lista[], int tam);
-int VEH_mostrarTodosOrdenados(eVehiculo lista[], int tam);
+int VEH_mostrarOrdenados(eVehiculo lista[], int tam);
 
 #endif /* VEHICULO_H_ */

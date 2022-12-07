@@ -27,7 +27,7 @@ int main(void)
 	int salir = 0;
 	int salirInformes = 0;
 
-	eHojaServicio listaHojas [TAM_HOJAS];
+	eHojaServicio listaHojas [20000+TAM_HOJAS];
 	eVehiculo listaVehiculos[TAM_VEHICULOS] = {{1, "FORD", 2010, "ROJO", 1001, OCUPADO},{2, "FIAT", 2012, "ROSA", 1001, OCUPADO}};
 	eTipo listaTipo[TAM_TIPOS] = {{1001, "SEDAN 3PTAS"}, {1002, "SEDAN 5PTAS"}, {1003, "CAMIONETA"}};
 

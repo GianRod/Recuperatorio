@@ -224,7 +224,7 @@ int VEH_mostrarTodosOrdenados(eVehiculo lista[], int tam)
 		{
 			for(int j = i+1; j < tam; j++)
 			{
-				if(lista[i].tipoId < lista[j].tipoId)
+				if(lista[i].tipoId > lista[j].tipoId)
 				{
 					aux = lista[i];
 					lista[i] = lista[j];
@@ -234,7 +234,7 @@ int VEH_mostrarTodosOrdenados(eVehiculo lista[], int tam)
 				{
 					if(lista[i].tipoId == lista[j].tipoId)
 					{
-						if(strcmp(lista[i].descripcion, lista[j].descripcion) > 0)
+						if(strcmp(lista[i].descripcion, lista[j].descripcion) < 1)
 						{
 							aux = lista[i];
 							lista[i] = lista[j];
@@ -245,7 +245,7 @@ int VEH_mostrarTodosOrdenados(eVehiculo lista[], int tam)
 			}
 		}
 
-		VEH_mostrarTodos(lista, tam);
+		VEH_mo
 	}
 
 	return retorno;

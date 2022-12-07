@@ -1,26 +1,52 @@
-09:54:17 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Nothing to build for RecuperatorioPrimerParcialLabo
+Info: Nothing to build for RecuperatorioPrimerParcialLabo
+10:16:39 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Fecha.o" "..\\src\\Fecha.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nexo.o" "..\\src\\nexo.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Vehiculo.o" "..\\src\\Vehiculo.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HojaServicio.o" "..\\src\\HojaServicio.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Tipo.o" "..\\src\\Tipo.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\input.o" "..\\src\\input.c" 
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\RecuperatorioPrimerParcialLabo.o" "..\\src\\RecuperatorioPrimerParcialLabo.c" 
+..\src\RecuperatorioPrimerParcialLabo.c: In function 'main':
+..\src\RecuperatorioPrimerParcialLabo.c:154:8: warning: implicit declaration of function 'VEH_mostrarTodosOrdenados' [-Wimplicit-function-declaration]
+        VEH_mostrarTodosOrdenados(listaVehiculos, TAM_VEHICULOS);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Vehiculo.o" "..\\src\\Vehiculo.c" 
 gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
-Info: Nothing to build for RecuperatorioPrimerParcialLabo
-09:55:28 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+src\RecuperatorioPrimerParcialLabo.o: In function `main':
+D:\Repositorio\Parciales\RecuperatorioPrimerParcialLabo\Debug/../src/RecuperatorioPrimerParcialLabo.c:154: undefined reference to `VEH_mostrarTodosOrdenados'
+collect2.exe: error: ld returned 1 exit status
+10:17:06 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
 Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HojaServicio.o" "..\\src\\HojaServicio.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Vehiculo.o" "..\\src\\Vehiculo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\RecuperatorioPrimerParcialLabo.o" "..\\src\\RecuperatorioPrimerParcialLabo.c" 
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nexo.o" "..\\src\\nexo.c" 
 gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
 Info: Nothing to build for RecuperatorioPrimerParcialLabo
-09:56:46 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+10:19:13 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nexo.o" "..\\src\\nexo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Vehiculo.o" "..\\src\\Vehiculo.c" 
+gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
+c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/ld.exe: cannot open output file RecuperatorioPrimerParcialLabo.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+10:19:17 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Internal Builder is used for build
 gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
 Info: Nothing to build for RecuperatorioPrimerParcialLabo
-09:58:21 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+10:20:18 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
 Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Vehiculo.o" "..\\src\\Vehiculo.c" 
+gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
+Info: Nothing to build for RecuperatorioPrimerParcialLabo
+10:21:15 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Vehiculo.o" "..\\src\\Vehiculo.c" 
+gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
+c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/ld.exe: cannot open output file RecuperatorioPrimerParcialLabo.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+10:21:16 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Internal Builder is used for build
+gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
+10:22:36 **** Incremental Build of configuration Debug for project RecuperatorioPrimerParcialLabo ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nexo.o" "..\\src\\nexo.c" 
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\RecuperatorioPrimerParcialLabo.o" "..\\src\\RecuperatorioPrimerParcialLabo.c" 
 gcc -o RecuperatorioPrimerParcialLabo.exe "src\\Fecha.o" "src\\HojaServicio.o" "src\\RecuperatorioPrimerParcialLabo.o" "src\\Tipo.o" "src\\Vehiculo.o" "src\\input.o" "src\\nexo.o" 
 Info: Nothing to build for RecuperatorioPrimerParcialLabo

@@ -63,57 +63,56 @@ eVehiculo VEH_pedirDatos(void)
 	if(pedirCadena(aux.descripcion, "\nIngrese la descripción del vehículo", TAM_DESC) == 0)
 	{
 		printf("\t**********La acción se ha completado correctamente**********\n");
+		if(pedirCadena(aux.color, "\nIngrese el color del vehículo", TAM_COLOR) == 0)
+		{
+			printf("\t**********La acción se ha completado correctamente**********\n");
+			if(pedirEntero(&aux.modelo, "\nIngrese año de fabricacion del vehiculo") == 0)
+			{
+				do
+				{
+					printf( "\nIngrese el tipo de auto:"
+								"\n1- SEDAN 3PTAS"
+								"\n2- SEDAN 5PTAS"
+								"\n3- CAMIONETA");
+					if(scanf("%d", &tipo) == 1)
+					{
+						switch(tipo)
+						{
+							case 1:
+								aux.tipoId = 1001;
+							break;
+							case 2:
+								aux.tipoId = 1002;
+							break;
+							case 3:
+								aux.tipoId = 1003;
+							break;
+							default:
+								aux.tipoId = 0;
+								printf("\nERROR! Opción no válida.");
+							break;
+						}
+					}
+				}while(aux.tipoId == 0);
+			}
+			else
+			{
+				printf("ERROR! No se pudo asignar el año correctamente");
+			}
+		}
+		else
+		{
+			do{
+				printf("ERROR! No se pudo ingresar el color correctamente");
+			}while(pedirCadena(aux.color, "\nIngrese el color del vehículo", TAM_COLOR));
 
+		}
 	}
 	else
 	{
 		do{
 			printf("ERROR! No se pudo ingresar la descripcion correctamente");
 		}while(pedirCadena(aux.descripcion, "\nIngrese la descripción del vehículo", TAM_DESC) != 0);
-	}
-	if(pedirCadena(aux.color, "\nIngrese el color del vehículo", TAM_COLOR) == 0)
-	{
-		printf("\t**********La acción se ha completado correctamente**********\n");
-	}
-	else
-	{
-		do{
-			printf("ERROR! No se pudo ingresar el color correctamente");
-		}while(pedirCadena(aux.color, "\nIngrese el color del vehículo", TAM_COLOR));
-
-	}
-	if(pedirEntero(&aux.modelo, "\nIngrese año de fabricacion del vehiculo") == 0)
-	{
-		do
-		{
-			printf( "\nIngrese el tipo de auto:"
-						"\n1- SEDAN 3PTAS"
-						"\n2- SEDAN 5PTAS"
-						"\n3- CAMIONETA");
-			if(scanf("%d", &tipo) == 1)
-			{
-				switch(tipo)
-				{
-					case 1:
-						aux.tipoId = 1001;
-					break;
-					case 2:
-						aux.tipoId = 1002;
-					break;
-					case 3:
-						aux.tipoId = 1003;
-					break;
-					default:
-						aux.tipoId = 0;
-						printf("\nERROR! Opción no válida.");
-					break;
-				}
-			}
-		}while(aux.tipoId == 0);
-	}
-	else
-	{
-		printf("ERROR! No se pudo asignar el año correctamente");
 	}
 
 	return aux;
@@ -213,7 +212,7 @@ int VEH_darBajaVehiculo(eVehiculo lista[], int tam)
 }
 
 
-int VEH_mostrarTodosOrdenados(eVehiculo lista[], int tam)
+int VEH_mostrarOrdenados(eVehiculo lista[], int tam)
 {
 	eVehiculo aux;
 	int retorno = -1;
@@ -224,28 +223,14 @@ int VEH_mostrarTodosOrdenados(eVehiculo lista[], int tam)
 		{
 			for(int j = i+1; j < tam; j++)
 			{
-				if(lista[i].tipoId < lista[j].tipoId)
+				if(lista[i].tipoId > lista[j].tipoId)
 				{
 					aux = lista[i];
 					lista[i] = lista[j];
 					lista[j] = aux;
 				}
-				else
-				{
-					if(lista[i].tipoId == lista[j].tipoId)
-					{
-						if(strcmp(lista[i].descripcion, lista[j].descripcion) > 0)
-						{
-							aux = lista[i];
-							lista[i] = lista[j];
-							lista[j] = aux;
-						}
-					}
-				}
 			}
 		}
-
-		VEH_mostrarTodos(lista, tam);
 	}
 
 	return retorno;
